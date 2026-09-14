@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Goju-Ryu Karate Dictionary"
+description = "A responsive visual dictionary for Goju-Ryu Karate terminology, with Japanese terms, English explanations, searchable categories, and illustrated technique references."
+version = "1.0.0"
+id = "artifacts/goju-ryu-dictionary"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25233
+
+[services.development]
+run = "pnpm --filter @workspace/goju-ryu-dictionary run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/goju-ryu-dictionary", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/goju-ryu-dictionary/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25233"
+BASE_PATH = "/"
