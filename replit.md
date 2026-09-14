@@ -1,15 +1,16 @@
-# [Project name]
+# Goju-Ryu Karate Dictionary
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A responsive visual field guide for learning Goju-Ryu Karate terminology, Japanese kanji, and technique explanations.
 
 ## Run & Operate
 
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/goju-ryu-dictionary run dev` — run the dictionary website through its managed workflow
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
 - `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- The dictionary is a static frontend and does not require database access.
 
 ## Stack
 
@@ -22,23 +23,32 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/goju-ryu-dictionary/src/App.tsx` — dictionary loading, search, filters, cards, and detail view
+- `artifacts/goju-ryu-dictionary/src/index.css` — visual system and responsive styles
+- `artifacts/goju-ryu-dictionary/public/terms.json` — source of truth for all 102 terms
+- `artifacts/goju-ryu-dictionary/public/images/` — 34 supplied technique illustrations
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Keep the dictionary fully static so it remains fast, portable, and easy to publish.
+- Illustrated technique entries and text-only terminology share the same search and detail experience.
+- The broader General category can be narrowed by its source tags, such as kata and dojo etiquette.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Search 102 terms by romanized Japanese, kanji, English translation, or explanation.
+- Filter by stances, punches, strikes, kicks, blocks, or general terminology.
+- Study all 34 illustrated techniques in a focused detail view.
+- Browse kata, commands, etiquette, directions, body weapons, and core concepts on desktop or mobile.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Preserve the user's supplied terminology and JPG illustrations.
+- Keep the experience modern, web-friendly, and mobile-friendly.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Use `import.meta.env.BASE_URL` when constructing public asset URLs so previews and published paths both work.
 
 ## Pointers
 

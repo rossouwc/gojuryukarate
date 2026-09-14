@@ -1,36 +1,38 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ArrowUpRight, BookOpen, ChevronLeft, ChevronRight, Info, Search, X } from 'lucide-react';
+import { ArrowUpRight, ChevronLeft, ChevronRight, Info, Search, X } from 'lucide-react';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
 import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 
-type Category = 'stance' | 'punch' | 'strike' | 'kick' | 'block';
+type Category = 'stances' | 'punches' | 'strikes' | 'kicks' | 'blocks' | 'general';
 
-type Technique = {
+type Term = {
   id: string;
   name: string;
   kanji: string;
   category: Category;
+  tag?: string;
   english: string;
-  image: string;
-  motion_prompt: string;
-  duration_seconds: number;
-  loop: boolean;
+  description: string;
+  image: string | null;
 };
 
 const queryClient = new QueryClient();
-const categoryOrder: Array<'all' | Category> = ['all', 'stance', 'punch', 'strike', 'kick', 'block'];
+const categoryOrder: Array<'all' | Category> = ['all', 'stances', 'punches', 'strikes', 'kicks', 'blocks', 'general'];
 const categoryLabels: Record<'all' | Category, string> = {
   all: 'All terms',
-  stance: 'Stances',
-  punch: 'Punches',
-  strike: 'Strikes',
-  kick: 'Kicks',
-  block: 'Blocks',
+  stances: 'Stances',
+  punches: 'Punches',
+  strikes: 'Strikes',
+  kicks: 'Kicks',
+  blocks: 'Blocks',
+  general: 'General',
 };
+
+const generalTags = ['Commands & etiquette', 'Levels & directions', 'Body weapons', 'Concepts', 'Kata'];
 
 function imageSrc(path: string) {
   const cleanPath = path.replace(/^\/+/, '');
@@ -50,40 +52,47 @@ function LoadingGrid() {
   );
 }
 
-function TechniqueCard({
-  technique,
+function TermCard({
+  term,
   index,
   onOpen,
 }: {
-  technique: Technique;
+  term: Term;
   index: number;
-  onOpen: (technique: Technique) => void;
+  onOpen: (term: Term) => void;
 }) {
+  const isTextOnly = !term.image;
   return (
     <button
       className="technique-card"
       style={{ animationDelay: `${Math.min(index * 35, 350)}ms` }}
-      onClick={() => onOpen(technique)}
-      data-testid={`card-technique-${technique.id}`}
-      aria-label={`Open ${technique.name}, ${technique.english}`}
+      onClick={() => onOpen(term)}
+      data-testid={`card-term-${term.id}`}
+      aria-label={`Open ${term.name}, ${term.english}`}
     >
-      <div className="card-art">
-        <img
-          src={imageSrc(technique.image)}
-          alt={`${technique.name} — ${technique.english}`}
-          loading="lazy"
-          data-testid={`img-technique-${technique.id}`}
-        />
-        <span className="card-category">{technique.category}</span>
-        <span className="card-index">{String(index + 1).padStart(2, '0')}</span>
+      <div className={`card-art ${isTextOnly ? 'text-only-art' : ''}`}>
+        {term.image ? (
+          <img
+            src={imageSrc(term.image)}
+            alt={`${term.name} — ${term.english}`}
+            loading="lazy"
+            data-testid={`img-term-${term.id}`}
+          />
+        ) : (
+          <div className="text-art-inner">
+            <span className="text-art-kanji">{term.kanji || term.name.charAt(0)}</span>
+          </div>
+        )}
+        <span className={`card-category ${isTextOnly ? 'text-tag' : ''}`}>{term.tag || categoryLabels[term.category]}</span>
+        <span className={`card-index ${isTextOnly ? 'text-tag' : ''}`}>{String(index + 1).padStart(2, '0')}</span>
       </div>
       <div className="card-info">
         <div className="card-name-row">
-          <h3 className="card-name">{technique.name}</h3>
-          <span className="card-kanji">{technique.kanji}</span>
+          <h3 className="card-name">{term.name}</h3>
+          <span className="card-kanji">{term.kanji}</span>
         </div>
-        <p className="card-english">{technique.english}</p>
-        <p className="card-description">{technique.motion_prompt}</p>
+        <p className="card-english">{term.english}</p>
+        <p className="card-description">{term.description}</p>
         <span className="card-link">
           Study entry <ArrowUpRight size={13} strokeWidth={2.2} aria-hidden="true" />
         </span>
@@ -93,13 +102,13 @@ function TechniqueCard({
 }
 
 function DetailPanel({
-  technique,
+  term,
   position,
   total,
   onClose,
   onNavigate,
 }: {
-  technique: Technique;
+  term: Term;
   position: number;
   total: number;
   onClose: () => void;
@@ -123,58 +132,64 @@ function DetailPanel({
         role="dialog"
         aria-modal="true"
         aria-labelledby="detail-title"
-        data-testid={`detail-panel-${technique.id}`}
+        data-testid={`detail-panel-${term.id}`}
       >
         <div className="detail-panel-inner">
           <div className="detail-top">
-            <span className="detail-label">Field guide / {technique.category}</span>
+            <span className="detail-label">Field guide / {term.category} {term.tag ? ` / ${term.tag}` : ''}</span>
             <button
               className="close-detail"
               onClick={onClose}
-              aria-label="Close technique detail"
+              aria-label="Close detail"
               data-testid="button-close-detail"
             >
               <X size={18} aria-hidden="true" />
             </button>
           </div>
-          <div className="detail-art">
-            <img
-              src={imageSrc(technique.image)}
-              alt={`${technique.name} illustrated technique reference`}
-              data-testid={`detail-image-${technique.id}`}
-            />
+          <div className={`detail-art ${!term.image ? 'text-only-art' : ''}`}>
+            {term.image ? (
+              <img
+                src={imageSrc(term.image)}
+                alt={`${term.name} reference`}
+                data-testid={`detail-image-${term.id}`}
+              />
+            ) : (
+              <div className="text-art-inner" style={{ transform: 'none' }}>
+                <span className="text-art-kanji">{term.kanji || term.name.charAt(0)}</span>
+              </div>
+            )}
           </div>
           <div className="detail-heading">
             <div>
-              <h2 id="detail-title">{technique.name}</h2>
-              <p className="detail-english">{technique.english}</p>
+              <h2 id="detail-title">{term.name}</h2>
+              <p className="detail-english">{term.english}</p>
             </div>
-            <span className="detail-kanji" lang="ja">{technique.kanji}</span>
+            <span className="detail-kanji" lang="ja">{term.kanji}</span>
           </div>
           <div className="detail-rule" />
           <p className="detail-section-label">Movement cue</p>
-          <p className="detail-description">{technique.motion_prompt}</p>
+          <p className="detail-description">{term.description}</p>
           <div className="training-note">
             <Info size={16} aria-hidden="true" />
-            <p>Use this illustration as a memory cue, then confirm the shape and timing with your instructor on the floor.</p>
+            <p>Use this guide as a memory cue, then confirm the shape and timing with your instructor on the floor.</p>
           </div>
           <div className="detail-nav">
             <button
               onClick={() => onNavigate(-1)}
               disabled={position === 0}
-              data-testid="button-previous-technique"
-              aria-label="Previous technique"
+              data-testid="button-previous-term"
+              aria-label="Previous term"
             >
               <ChevronLeft size={14} aria-hidden="true" /> Previous
             </button>
-            <span className="detail-index" aria-label={`Technique ${position + 1} of ${total}`}>
+            <span className="detail-index" aria-label={`Term ${position + 1} of ${total}`}>
               {String(position + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
             </span>
             <button
               onClick={() => onNavigate(1)}
               disabled={position === total - 1}
-              data-testid="button-next-technique"
-              aria-label="Next technique"
+              data-testid="button-next-term"
+              aria-label="Next term"
             >
               Next <ChevronRight size={14} aria-hidden="true" />
             </button>
@@ -186,29 +201,30 @@ function DetailPanel({
 }
 
 function Home() {
-  const [techniques, setTechniques] = useState<Technique[]>([]);
+  const [terms, setTerms] = useState<Term[]>([]);
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState<'all' | Category>('all');
+  const [tag, setTag] = useState<string | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const loadTechniques = () => {
+  const loadTerms = () => {
     setIsLoading(true);
     setError(false);
-    fetch(`${import.meta.env.BASE_URL}techniques.json`)
+    fetch(`${import.meta.env.BASE_URL}terms.json`)
       .then((response) => {
         if (!response.ok) throw new Error('Unable to load terminology');
-        return response.json() as Promise<Technique[]>;
+        return response.json() as Promise<Term[]>;
       })
-      .then((data) => setTechniques(data))
+      .then((data) => setTerms(data))
       .catch(() => setError(true))
       .finally(() => setIsLoading(false));
   };
 
   useEffect(() => {
-    loadTechniques();
+    loadTerms();
   }, []);
 
   useEffect(() => {
@@ -227,29 +243,39 @@ function Home() {
     return () => { document.body.style.overflow = ''; };
   }, [selectedId]);
 
-  const filteredTechniques = useMemo(() => {
+  const filteredTerms = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
-    return techniques.filter((technique) => {
-      const matchesCategory = category === 'all' || technique.category === category;
-      const searchable = `${technique.name} ${technique.kanji} ${technique.english} ${technique.motion_prompt}`.toLowerCase();
-      return matchesCategory && (!normalizedQuery || searchable.includes(normalizedQuery));
+    return terms.filter((term) => {
+      const matchesCategory = category === 'all' || term.category === category;
+      const matchesTag = !tag || term.tag === tag;
+      const searchable = `${term.name} ${term.kanji} ${term.english} ${term.description}`.toLowerCase();
+      return matchesCategory && matchesTag && (!normalizedQuery || searchable.includes(normalizedQuery));
     });
-  }, [category, query, techniques]);
+  }, [category, tag, query, terms]);
 
-  const selectedTechnique = useMemo(
-    () => techniques.find((technique) => technique.id === selectedId) ?? null,
-    [selectedId, techniques],
+  const selectedTerm = useMemo(
+    () => terms.find((term) => term.id === selectedId) ?? null,
+    [selectedId, terms],
   );
-  const selectedPosition = selectedTechnique ? filteredTechniques.findIndex((technique) => technique.id === selectedTechnique.id) : -1;
+  const selectedPosition = selectedTerm ? filteredTerms.findIndex((term) => term.id === selectedTerm.id) : -1;
 
   const categoryCount = (value: 'all' | Category) =>
-    value === 'all' ? techniques.length : techniques.filter((technique) => technique.category === value).length;
+    value === 'all' ? terms.length : terms.filter((term) => term.category === value).length;
 
-  const openTechnique = (technique: Technique) => setSelectedId(technique.id);
+  const tagCount = (value: string) =>
+    terms.filter((term) => term.tag === value).length;
+
+  const openTerm = (term: Term) => setSelectedId(term.id);
   const resetFilters = () => {
     setQuery('');
     setCategory('all');
+    setTag(null);
     searchRef.current?.focus();
+  };
+
+  const handleCategoryChange = (value: 'all' | Category) => {
+    setCategory(value);
+    if (value !== 'general') setTag(null);
   };
 
   return (
@@ -275,8 +301,8 @@ function Home() {
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search a term, translation, or cue"
-                aria-label="Search karate terminology"
-                data-testid="input-search-techniques"
+                aria-label="Search terminology"
+                data-testid="input-search-terms"
               />
               {query ? (
                 <button className="clear-search" onClick={() => setQuery('')} aria-label="Clear search" data-testid="button-clear-search">
@@ -286,8 +312,8 @@ function Home() {
                 <span className="shortcut" aria-hidden="true">⌘ K</span>
               )}
             </div>
-            <div className="count-stamp" aria-label={`${techniques.length} entries in dictionary`}>
-              <strong>{techniques.length || '—'}</strong>
+            <div className="count-stamp" aria-label={`${terms.length} entries in dictionary`}>
+              <strong>{terms.length || '—'}</strong>
               entries
             </div>
           </div>
@@ -298,7 +324,7 @@ function Home() {
                 key={value}
                 className="filter-button"
                 aria-pressed={category === value}
-                onClick={() => setCategory(value)}
+                onClick={() => handleCategoryChange(value)}
                 data-testid={`filter-category-${value}`}
               >
                 {categoryLabels[value]}
@@ -306,6 +332,23 @@ function Home() {
               </button>
             ))}
           </nav>
+          
+          {category === 'general' && (
+            <nav className="sub-filter-row" aria-label="Filter by general tags">
+              <span className="sub-filter-label">Tag</span>
+              {generalTags.map((t) => (
+                <button
+                  key={t}
+                  className="sub-filter-button"
+                  aria-pressed={tag === t}
+                  onClick={() => setTag(tag === t ? null : t)}
+                  data-testid={`filter-tag-${t.replace(/\s+/g, '-').toLowerCase()}`}
+                >
+                  {t} <span className="filter-count">{tagCount(t)}</span>
+                </button>
+              ))}
+            </nav>
+          )}
         </div>
       </header>
 
@@ -320,9 +363,9 @@ function Home() {
         </section>
 
         <div className="grid-heading">
-          <h2>{query || category !== 'all' ? 'Matching terms' : 'The vocabulary'}</h2>
+          <h2>{query || category !== 'all' || tag ? 'Matching terms' : 'The vocabulary'}</h2>
           <span className="line" aria-hidden="true" />
-          <span className="grid-meta" data-testid="text-result-count">{filteredTechniques.length} shown</span>
+          <span className="grid-meta" data-testid="text-result-count">{filteredTerms.length} shown</span>
         </div>
 
         {isLoading ? <LoadingGrid /> : error ? (
@@ -330,9 +373,9 @@ function Home() {
             <div className="empty-seal" aria-hidden="true">再</div>
             <h2>The guide is resting.</h2>
             <p>We could not load the supplied terminology. Check the connection and try again.</p>
-            <button className="reset-button" onClick={loadTechniques} data-testid="button-retry-loading">Try again</button>
+            <button className="reset-button" onClick={loadTerms} data-testid="button-retry-loading">Try again</button>
           </div>
-        ) : filteredTechniques.length === 0 ? (
+        ) : filteredTerms.length === 0 ? (
           <div className="empty-state" data-testid="status-empty">
             <div className="empty-seal" aria-hidden="true">探</div>
             <h2>No matching term.</h2>
@@ -340,9 +383,9 @@ function Home() {
             <button className="reset-button" onClick={resetFilters} data-testid="button-reset-filters">Show all terms</button>
           </div>
         ) : (
-          <div className="term-grid" data-testid="grid-techniques">
-            {filteredTechniques.map((technique, index) => (
-              <TechniqueCard key={technique.id} technique={technique} index={index} onOpen={openTechnique} />
+          <div className="term-grid" data-testid="grid-terms">
+            {filteredTerms.map((term, index) => (
+              <TermCard key={term.id} term={term} index={index} onOpen={openTerm} />
             ))}
           </div>
         )}
@@ -353,14 +396,14 @@ function Home() {
         <span>Study with attention. Train with a teacher. This guide is a memory aid, not a substitute for instruction.</span>
       </footer>
 
-      {selectedTechnique && selectedPosition >= 0 ? (
+      {selectedTerm && selectedPosition >= 0 ? (
         <DetailPanel
-          technique={selectedTechnique}
+          term={selectedTerm}
           position={selectedPosition}
-          total={filteredTechniques.length}
+          total={filteredTerms.length}
           onClose={() => setSelectedId(null)}
           onNavigate={(direction) => {
-            const next = filteredTechniques[selectedPosition + direction];
+            const next = filteredTerms[selectedPosition + direction];
             if (next) setSelectedId(next.id);
           }}
         />

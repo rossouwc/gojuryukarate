@@ -1,0 +1,1022 @@
+[
+  {
+    "id": "musubi-dachi",
+    "name": "Musubi dachi",
+    "kanji": "結び立ち",
+    "category": "stances",
+    "tag": "Stance",
+    "english": "informal attention stance",
+    "description": "Heels together, toes turned out about 45°, arms relaxed at the sides. This is where you stand to bow in and out of the dojo.",
+    "image": "images/musubi-dachi.jpg"
+  },
+  {
+    "id": "heiko-dachi",
+    "name": "Heikō dachi",
+    "kanji": "平行立ち",
+    "category": "stances",
+    "tag": "Stance",
+    "english": "parallel stance",
+    "description": "Feet parallel and about shoulder-width apart, weight even, knees soft. The natural standing position most kata open from.",
+    "image": "images/heiko-dachi.jpg"
+  },
+  {
+    "id": "sanchin-dachi",
+    "name": "Sanchin dachi",
+    "kanji": "三戦立ち",
+    "category": "stances",
+    "tag": "Stance",
+    "english": "hourglass stance",
+    "description": "Gōjū-ryū's signature stance. One foot half a step forward, both feet turned in, knees drawn together and the whole body under tension while you breathe.",
+    "image": "images/sanchin-dachi.jpg"
+  },
+  {
+    "id": "neko-ashi-dachi",
+    "name": "Neko ashi dachi",
+    "kanji": "猫足立ち",
+    "category": "stances",
+    "tag": "Stance",
+    "english": "cat stance",
+    "description": "Roughly 90% of the weight sits on the bent back leg. Only the ball of the front foot rests on the floor, so it can kick or slide without a weight shift.",
+    "image": "images/neko-ashi-dachi.jpg"
+  },
+  {
+    "id": "shiko-dachi",
+    "name": "Shiko dachi",
+    "kanji": "四股立ち",
+    "category": "stances",
+    "tag": "Stance",
+    "english": "square stance",
+    "description": "A wide, deep stance with the feet turned out 45° and the knees pressed open over them. Hips sink straight down — it builds rooting and hip power.",
+    "image": "images/shiko-dachi.jpg"
+  },
+  {
+    "id": "zenkutsu-dachi",
+    "name": "Zenkutsu dachi",
+    "kanji": "前屈立ち",
+    "category": "stances",
+    "tag": "Stance",
+    "english": "front stance",
+    "description": "Long stance with about 70% of the weight on the bent front leg and the back leg driven straight. Used to deliver stepping techniques forward.",
+    "image": "images/zenkutsu-dachi.jpg"
+  },
+  {
+    "id": "kokutsu-dachi",
+    "name": "Kōkutsu dachi",
+    "kanji": "後屈立ち",
+    "category": "stances",
+    "tag": "Stance",
+    "english": "back stance",
+    "description": "The mirror of front stance: weight loads onto the bent rear leg, front leg light and straight. A defensive stance that lets you pull back out of range.",
+    "image": "images/kokutsu-dachi.jpg"
+  },
+  {
+    "id": "tsuru-ashi-dachi",
+    "name": "Tsuru ashi dachi",
+    "kanji": "鶴足立ち",
+    "category": "stances",
+    "tag": "Stance",
+    "english": "crane stance",
+    "description": "Balanced on one bent leg with the other foot tucked in behind the supporting knee. Appears in Seiyunchin and Kururunfa, usually just before a kick or a drop.",
+    "image": "images/tsuru-ashi-dachi.jpg"
+  },
+  {
+    "id": "choku-zuki",
+    "name": "Choku zuki",
+    "kanji": "直突き",
+    "category": "punches",
+    "tag": "Punch",
+    "english": "straight punch",
+    "description": "The basic punch: fist travels straight out from the hip, forearm rotating so the knuckles land palm-down. No step — practised on the spot from a natural stance.",
+    "image": "images/choku-zuki.jpg"
+  },
+  {
+    "id": "oi-zuki",
+    "name": "Oi zuki",
+    "kanji": "追い突き",
+    "category": "punches",
+    "tag": "Punch",
+    "english": "lunge punch",
+    "description": "Step forward into front stance and punch with the hand on the same side as the leading leg, so the whole body mass travels behind the fist.",
+    "image": "images/oi-zuki.jpg"
+  },
+  {
+    "id": "gyaku-zuki",
+    "name": "Gyaku zuki",
+    "kanji": "逆突き",
+    "category": "punches",
+    "tag": "Punch",
+    "english": "reverse punch",
+    "description": "From front stance, the rear hand punches as the hips snap square to the target. Karate's main power punch — the hip rotation, not the arm, supplies the force.",
+    "image": "images/gyaku-zuki.jpg"
+  },
+  {
+    "id": "kizami-zuki",
+    "name": "Kizami zuki",
+    "kanji": "刻み突き",
+    "category": "punches",
+    "tag": "Punch",
+    "english": "jab",
+    "description": "A fast snapping punch with the lead hand from fighting stance. Used to measure distance, interrupt an attack, or open the way for something heavier.",
+    "image": "images/kizami-zuki.jpg"
+  },
+  {
+    "id": "mawashi-zuki",
+    "name": "Mawashi zuki",
+    "kanji": "回し突き",
+    "category": "punches",
+    "tag": "Punch",
+    "english": "roundhouse punch",
+    "description": "A hooking punch that swings in a horizontal arc with the elbow lifted, landing on the side of the jaw or ribs rather than straight on.",
+    "image": "images/mawashi-zuki.jpg"
+  },
+  {
+    "id": "ura-zuki",
+    "name": "Ura zuki",
+    "kanji": "裏突き",
+    "category": "punches",
+    "tag": "Punch",
+    "english": "close punch",
+    "description": "A short punch thrown with the elbow still bent, palm facing up. Made for infighting range, where a full extension would overshoot the target.",
+    "image": "images/ura-zuki.jpg"
+  },
+  {
+    "id": "uraken-uchi",
+    "name": "Uraken uchi",
+    "kanji": "裏拳打ち",
+    "category": "strikes",
+    "tag": "Strike",
+    "english": "backfist strike",
+    "description": "The arm folds across the chest, then the fist whips out from the elbow and snaps back, landing with the back of the knuckles on the temple or ribs.",
+    "image": "images/uraken-uchi.jpg"
+  },
+  {
+    "id": "shuto-uchi",
+    "name": "Shutō uchi",
+    "kanji": "手刀打ち",
+    "category": "strikes",
+    "tag": "Strike",
+    "english": "knife-hand strike",
+    "description": "An open-hand chop with the outer edge of the palm, swung in from beside the ear into the neck or collarbone. The hand stays firm with the thumb tucked.",
+    "image": "images/shuto-uchi.jpg"
+  },
+  {
+    "id": "haito-uchi",
+    "name": "Haitō uchi",
+    "kanji": "背刀打ち",
+    "category": "strikes",
+    "tag": "Strike",
+    "english": "ridge-hand strike",
+    "description": "The mirror of the knife-hand: the strike sweeps outward and lands on the thumb-side edge of the hand, typically into the neck or the side of the head.",
+    "image": "images/haito-uchi.jpg"
+  },
+  {
+    "id": "tettsui-uchi",
+    "name": "Tettsui uchi",
+    "kanji": "鉄槌打ち",
+    "category": "strikes",
+    "tag": "Strike",
+    "english": "hammer-fist strike",
+    "description": "The bottom of the clenched fist drops like a hammer — straight down onto a collarbone or grabbing arm, or sideways into the ribs. Heavy rather than fast.",
+    "image": "images/tettsui-uchi.jpg"
+  },
+  {
+    "id": "empi-uchi",
+    "name": "Empi uchi",
+    "kanji": "肘打ち",
+    "category": "strikes",
+    "tag": "Strike",
+    "english": "elbow strike",
+    "description": "At close range the elbow becomes the weapon, driven forward, up, back or across. Short travel, very little that can go wrong, and nothing to break.",
+    "image": "images/empi-uchi.jpg"
+  },
+  {
+    "id": "nukite",
+    "name": "Nukite",
+    "kanji": "貫手",
+    "category": "strikes",
+    "tag": "Strike",
+    "english": "spear-hand strike",
+    "description": "Fingers held straight and braced together, thrust like a blade into soft targets — the throat, the floating ribs, the solar plexus.",
+    "image": "images/nukite.jpg"
+  },
+  {
+    "id": "mae-geri",
+    "name": "Mae geri",
+    "kanji": "前蹴り",
+    "category": "kicks",
+    "tag": "Kick",
+    "english": "front kick",
+    "description": "The knee lifts first, then the lower leg snaps straight out and back again. Contact is with the ball of the foot, toes pulled back out of the way.",
+    "image": "images/mae-geri.jpg"
+  },
+  {
+    "id": "mawashi-geri",
+    "name": "Mawashi geri",
+    "kanji": "回し蹴り",
+    "category": "kicks",
+    "tag": "Kick",
+    "english": "roundhouse kick",
+    "description": "The knee comes up to the side, then the hip rotates over and the leg whips around parallel to the floor. Lands with the instep, ball of the foot, or shin.",
+    "image": "images/mawashi-geri.jpg"
+  },
+  {
+    "id": "yoko-geri",
+    "name": "Yoko geri",
+    "kanji": "横蹴り",
+    "category": "kicks",
+    "tag": "Kick",
+    "english": "side kick",
+    "description": "The kick travels sideways with the body leaning away from it, striking with the outer edge of the foot (sokutō) rather than the ball.",
+    "image": "images/yoko-geri.jpg"
+  },
+  {
+    "id": "ushiro-geri",
+    "name": "Ushiro geri",
+    "kanji": "後ろ蹴り",
+    "category": "kicks",
+    "tag": "Kick",
+    "english": "back kick",
+    "description": "A kick driven straight out behind you, heel first, with the body folding forward as the leg extends. Usually thrown after turning.",
+    "image": "images/ushiro-geri.jpg"
+  },
+  {
+    "id": "hiza-geri",
+    "name": "Hiza geri",
+    "kanji": "膝蹴り",
+    "category": "kicks",
+    "tag": "Kick",
+    "english": "knee strike",
+    "description": "The knee is driven upward into the body at close range, normally while both hands pull the opponent down onto it.",
+    "image": "images/hiza-geri.jpg"
+  },
+  {
+    "id": "kansetsu-geri",
+    "name": "Kansetsu geri",
+    "kanji": "関節蹴り",
+    "category": "kicks",
+    "tag": "Kick",
+    "english": "joint kick",
+    "description": "A low stamping kick into the side or front of the knee joint. Short, blunt and aimed at taking the opponent's base away.",
+    "image": "images/kansetsu-geri.jpg"
+  },
+  {
+    "id": "kin-geri",
+    "name": "Kin geri",
+    "kanji": "金蹴り",
+    "category": "kicks",
+    "tag": "Kick",
+    "english": "groin kick",
+    "description": "A rising snap kick to the groin using the instep or shin. Short travel, no wind-up, often thrown off the back leg in kihon combinations.",
+    "image": "images/kin-geri.jpg"
+  },
+  {
+    "id": "age-uke",
+    "name": "Age uke",
+    "kanji": "揚げ受け",
+    "category": "blocks",
+    "tag": "Block",
+    "english": "rising block",
+    "description": "The forearm travels up and outward to lift a head-height attack clear, finishing at an angle just above the forehead with the fist past the far temple.",
+    "image": "images/age-uke.jpg"
+  },
+  {
+    "id": "gedan-barai",
+    "name": "Gedan barai",
+    "kanji": "下段払い",
+    "category": "blocks",
+    "tag": "Block",
+    "english": "downward sweep",
+    "description": "The arm sweeps down and across the front of the body to clear a low attack such as a front kick, finishing above the leading thigh.",
+    "image": "images/gedan-barai.jpg"
+  },
+  {
+    "id": "soto-uke",
+    "name": "Soto uke",
+    "kanji": "外受け",
+    "category": "blocks",
+    "tag": "Block",
+    "english": "outside block",
+    "description": "The forearm comes from outside the body inward across the centreline, catching a chest-height punch on the outer edge of the arm.",
+    "image": "images/soto-uke.jpg"
+  },
+  {
+    "id": "uchi-uke",
+    "name": "Uchi uke",
+    "kanji": "内受け",
+    "category": "blocks",
+    "tag": "Block",
+    "english": "inside block",
+    "description": "The opposite path to soto uke — the forearm starts near the body and drives outward, pushing the attack away from the centreline.",
+    "image": "images/uchi-uke.jpg"
+  },
+  {
+    "id": "shuto-uke",
+    "name": "Shutō uke",
+    "kanji": "手刀受け",
+    "category": "blocks",
+    "tag": "Block",
+    "english": "knife-hand block",
+    "description": "An open-hand guard: the leading hand blocks with the palm edge while the other stays at the solar plexus. Almost always paired with back stance.",
+    "image": "images/shuto-uke.jpg"
+  },
+  {
+    "id": "mawashi-uke",
+    "name": "Mawashi uke",
+    "kanji": "回し受け",
+    "category": "blocks",
+    "tag": "Block",
+    "english": "circular block",
+    "description": "Gōjū-ryū's own two-handed block, drawn from Sanchin and Tenshō. Both open hands turn through a circle — one high, one low — redirecting rather than meeting force.",
+    "image": "images/mawashi-uke.jpg"
+  },
+  {
+    "id": "kake-uke",
+    "name": "Kake uke",
+    "kanji": "掛け受け",
+    "category": "blocks",
+    "tag": "Block",
+    "english": "hooking block",
+    "description": "The hand hooks over the incoming arm and pulls it off line, trapping the attacker for a moment so the other hand can strike into the gap.",
+    "image": "images/kake-uke.jpg"
+  },
+  {
+    "id": "general-35",
+    "name": "Rei",
+    "kanji": "礼",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "bow",
+    "description": "The bow. Used entering and leaving the dojo, and to the sensei and partners. Eyes stay up in a martial context.",
+    "image": null
+  },
+  {
+    "id": "general-36",
+    "name": "Ritsurei",
+    "kanji": "立礼",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "standing bow",
+    "description": "Bow performed from standing, normally from musubi dachi.",
+    "image": null
+  },
+  {
+    "id": "general-37",
+    "name": "Zarei",
+    "kanji": "座礼",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "kneeling bow",
+    "description": "Bow performed from seiza, hands placed left then right on the floor.",
+    "image": null
+  },
+  {
+    "id": "general-38",
+    "name": "Seiza",
+    "kanji": "正座",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "formal kneeling",
+    "description": "Kneeling posture used at the start and end of class, usually with mokusō.",
+    "image": null
+  },
+  {
+    "id": "general-39",
+    "name": "Mokusō",
+    "kanji": "黙想",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "silent meditation",
+    "description": "A short period of stillness and breathing to settle the mind before or after training.",
+    "image": null
+  },
+  {
+    "id": "general-40",
+    "name": "Kiotsuke",
+    "kanji": "気を付け",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "attention",
+    "description": "Command to come to attention.",
+    "image": null
+  },
+  {
+    "id": "general-41",
+    "name": "Yōi",
+    "kanji": "用意",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "ready",
+    "description": "Command to assume the ready position, normally heikō dachi.",
+    "image": null
+  },
+  {
+    "id": "general-42",
+    "name": "Hajime",
+    "kanji": "始め",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "begin",
+    "description": "Command to start.",
+    "image": null
+  },
+  {
+    "id": "general-43",
+    "name": "Yame",
+    "kanji": "止め",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "stop",
+    "description": "Command to stop.",
+    "image": null
+  },
+  {
+    "id": "general-44",
+    "name": "Mawatte",
+    "kanji": "回って",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "turn",
+    "description": "Command to turn and face the other way, used in moving basics.",
+    "image": null
+  },
+  {
+    "id": "general-45",
+    "name": "Naore",
+    "kanji": "直れ",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "return",
+    "description": "Command to return to the natural position.",
+    "image": null
+  },
+  {
+    "id": "general-46",
+    "name": "Sensei",
+    "kanji": "先生",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "teacher",
+    "description": "The instructor. Literally one who has gone before.",
+    "image": null
+  },
+  {
+    "id": "general-47",
+    "name": "Sempai",
+    "kanji": "先輩",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "senior student",
+    "description": "A student senior to you in the dojo.",
+    "image": null
+  },
+  {
+    "id": "general-48",
+    "name": "Dōjō",
+    "kanji": "道場",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "training hall",
+    "description": "The place of the way — where training happens.",
+    "image": null
+  },
+  {
+    "id": "general-49",
+    "name": "Dōgi",
+    "kanji": "道着",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "training uniform",
+    "description": "The uniform, commonly shortened to gi. Gōjū-ryū gi are traditionally heavier and shorter in the sleeve.",
+    "image": null
+  },
+  {
+    "id": "general-50",
+    "name": "Obi",
+    "kanji": "帯",
+    "category": "general",
+    "tag": "Commands & etiquette",
+    "english": "belt",
+    "description": "The belt, showing grade. Tied with the knot centred and both ends level.",
+    "image": null
+  },
+  {
+    "id": "general-51",
+    "name": "Jōdan",
+    "kanji": "上段",
+    "category": "general",
+    "tag": "Levels & directions",
+    "english": "upper level",
+    "description": "Head and neck height. A technique named jōdan is aimed there.",
+    "image": null
+  },
+  {
+    "id": "general-52",
+    "name": "Chūdan",
+    "kanji": "中段",
+    "category": "general",
+    "tag": "Levels & directions",
+    "english": "middle level",
+    "description": "Chest and stomach height — the most common target level in kihon.",
+    "image": null
+  },
+  {
+    "id": "general-53",
+    "name": "Gedan",
+    "kanji": "下段",
+    "category": "general",
+    "tag": "Levels & directions",
+    "english": "lower level",
+    "description": "Below the belt: groin, thighs, knees.",
+    "image": null
+  },
+  {
+    "id": "general-54",
+    "name": "Hidari",
+    "kanji": "左",
+    "category": "general",
+    "tag": "Levels & directions",
+    "english": "left",
+    "description": "Left side. Hidari sanchin dachi means left foot forward.",
+    "image": null
+  },
+  {
+    "id": "general-55",
+    "name": "Migi",
+    "kanji": "右",
+    "category": "general",
+    "tag": "Levels & directions",
+    "english": "right",
+    "description": "Right side.",
+    "image": null
+  },
+  {
+    "id": "general-56",
+    "name": "Mae",
+    "kanji": "前",
+    "category": "general",
+    "tag": "Levels & directions",
+    "english": "front",
+    "description": "Forward. As in mae geri, front kick.",
+    "image": null
+  },
+  {
+    "id": "general-57",
+    "name": "Ushiro",
+    "kanji": "後ろ",
+    "category": "general",
+    "tag": "Levels & directions",
+    "english": "rear",
+    "description": "Behind. As in ushiro geri, back kick.",
+    "image": null
+  },
+  {
+    "id": "general-58",
+    "name": "Yoko",
+    "kanji": "横",
+    "category": "general",
+    "tag": "Levels & directions",
+    "english": "side",
+    "description": "Sideways. As in yoko geri, side kick.",
+    "image": null
+  },
+  {
+    "id": "general-59",
+    "name": "Soto",
+    "kanji": "外",
+    "category": "general",
+    "tag": "Levels & directions",
+    "english": "outside",
+    "description": "From outside inward, describing the path of a block or strike.",
+    "image": null
+  },
+  {
+    "id": "general-60",
+    "name": "Uchi",
+    "kanji": "内",
+    "category": "general",
+    "tag": "Levels & directions",
+    "english": "inside",
+    "description": "From inside outward. Also means strike when used as uchi waza.",
+    "image": null
+  },
+  {
+    "id": "general-61",
+    "name": "Gyaku",
+    "kanji": "逆",
+    "category": "general",
+    "tag": "Levels & directions",
+    "english": "reverse",
+    "description": "Opposite side to the leading leg, as in gyaku zuki.",
+    "image": null
+  },
+  {
+    "id": "general-62",
+    "name": "Morote",
+    "kanji": "諸手",
+    "category": "general",
+    "tag": "Levels & directions",
+    "english": "both hands",
+    "description": "Two-handed version of a technique, as in morote uke.",
+    "image": null
+  },
+  {
+    "id": "general-63",
+    "name": "Seiken",
+    "kanji": "正拳",
+    "category": "general",
+    "tag": "Body weapons",
+    "english": "forefist",
+    "description": "The first two knuckles of a closed fist — the standard punching surface.",
+    "image": null
+  },
+  {
+    "id": "general-64",
+    "name": "Uraken",
+    "kanji": "裏拳",
+    "category": "general",
+    "tag": "Body weapons",
+    "english": "backfist",
+    "description": "The back of the knuckles, used in whipping strikes.",
+    "image": null
+  },
+  {
+    "id": "general-65",
+    "name": "Tettsui",
+    "kanji": "鉄槌",
+    "category": "general",
+    "tag": "Body weapons",
+    "english": "hammer fist",
+    "description": "The muscled bottom edge of the fist.",
+    "image": null
+  },
+  {
+    "id": "general-66",
+    "name": "Shutō",
+    "kanji": "手刀",
+    "category": "general",
+    "tag": "Body weapons",
+    "english": "knife hand",
+    "description": "The outer edge of the open hand, thumb tucked.",
+    "image": null
+  },
+  {
+    "id": "general-67",
+    "name": "Haitō",
+    "kanji": "背刀",
+    "category": "general",
+    "tag": "Body weapons",
+    "english": "ridge hand",
+    "description": "The thumb-side edge of the open hand.",
+    "image": null
+  },
+  {
+    "id": "general-68",
+    "name": "Teishō",
+    "kanji": "底掌",
+    "category": "general",
+    "tag": "Body weapons",
+    "english": "palm heel",
+    "description": "The heel of the palm — a favourite Gōjū-ryū striking surface.",
+    "image": null
+  },
+  {
+    "id": "general-69",
+    "name": "Nukite",
+    "kanji": "貫手",
+    "category": "general",
+    "tag": "Body weapons",
+    "english": "spear hand",
+    "description": "Braced fingertips used against soft targets.",
+    "image": null
+  },
+  {
+    "id": "general-70",
+    "name": "Hiji / Empi",
+    "kanji": "肘",
+    "category": "general",
+    "tag": "Body weapons",
+    "english": "elbow",
+    "description": "The elbow, used at close range.",
+    "image": null
+  },
+  {
+    "id": "general-71",
+    "name": "Hiza",
+    "kanji": "膝",
+    "category": "general",
+    "tag": "Body weapons",
+    "english": "knee",
+    "description": "The knee, used in clinch range.",
+    "image": null
+  },
+  {
+    "id": "general-72",
+    "name": "Koshi",
+    "kanji": "腰",
+    "category": "general",
+    "tag": "Body weapons",
+    "english": "ball of the foot",
+    "description": "The ball of the foot, with toes pulled back. Used in mae geri.",
+    "image": null
+  },
+  {
+    "id": "general-73",
+    "name": "Sokutō",
+    "kanji": "足刀",
+    "category": "general",
+    "tag": "Body weapons",
+    "english": "foot edge",
+    "description": "The outer blade of the foot, used in yoko geri.",
+    "image": null
+  },
+  {
+    "id": "general-74",
+    "name": "Kakato",
+    "kanji": "踵",
+    "category": "general",
+    "tag": "Body weapons",
+    "english": "heel",
+    "description": "The heel, used in stamping and back kicks.",
+    "image": null
+  },
+  {
+    "id": "general-75",
+    "name": "Gō",
+    "kanji": "剛",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "hard",
+    "description": "The hard half of the style's name: linear, direct, forceful technique.",
+    "image": null
+  },
+  {
+    "id": "general-76",
+    "name": "Jū",
+    "kanji": "柔",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "soft",
+    "description": "The soft half of the name: yielding, circular, redirecting technique. Gōjū means hard-soft.",
+    "image": null
+  },
+  {
+    "id": "general-77",
+    "name": "Kihon",
+    "kanji": "基本",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "basics",
+    "description": "The fundamental techniques, practised on the spot or moving (ido kihon).",
+    "image": null
+  },
+  {
+    "id": "general-78",
+    "name": "Kata",
+    "kanji": "型",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "form",
+    "description": "A fixed sequence of techniques that stores the system's knowledge.",
+    "image": null
+  },
+  {
+    "id": "general-79",
+    "name": "Bunkai",
+    "kanji": "分解",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "analysis",
+    "description": "Taking a kata apart to work out what the movements are actually for.",
+    "image": null
+  },
+  {
+    "id": "general-80",
+    "name": "Kumite",
+    "kanji": "組手",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "sparring",
+    "description": "Partner work, from fixed pre-arranged drills through to free sparring.",
+    "image": null
+  },
+  {
+    "id": "general-81",
+    "name": "Kiai",
+    "kanji": "気合",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "spirit shout",
+    "description": "The shout at the moment of commitment, tightening the abdomen and focusing the technique.",
+    "image": null
+  },
+  {
+    "id": "general-82",
+    "name": "Kime",
+    "kanji": "決め",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "focus",
+    "description": "The instant of total tension at the end of a technique, then immediate release.",
+    "image": null
+  },
+  {
+    "id": "general-83",
+    "name": "Zanshin",
+    "kanji": "残心",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "remaining mind",
+    "description": "Continued awareness after a technique finishes — you have not switched off.",
+    "image": null
+  },
+  {
+    "id": "general-84",
+    "name": "Muchimi",
+    "kanji": "",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "heavy sticky movement",
+    "description": "A heavy, adhering quality of movement particular to Gōjū-ryū, felt in kake uke and mawashi uke.",
+    "image": null
+  },
+  {
+    "id": "general-85",
+    "name": "Chinkuchi",
+    "kanji": "",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "momentary whole-body tension",
+    "description": "An Okinawan term for locking the whole body for an instant at the point of impact.",
+    "image": null
+  },
+  {
+    "id": "general-86",
+    "name": "Hōjō undō",
+    "kanji": "補助運動",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "supplementary training",
+    "description": "Conditioning with traditional tools — chiishi, nigiri game, ishi sashi, makiwara.",
+    "image": null
+  },
+  {
+    "id": "general-87",
+    "name": "Tanden",
+    "kanji": "丹田",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "centre",
+    "description": "The point below the navel treated as the body's centre of power and breathing.",
+    "image": null
+  },
+  {
+    "id": "general-88",
+    "name": "Ibuki",
+    "kanji": "息吹",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "forceful breathing",
+    "description": "The audible tensioned breathing used in Sanchin.",
+    "image": null
+  },
+  {
+    "id": "general-89",
+    "name": "Ido",
+    "kanji": "移動",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "moving",
+    "description": "Moving basics — technique performed while stepping, as opposed to on the spot.",
+    "image": null
+  },
+  {
+    "id": "general-90",
+    "name": "Tai sabaki",
+    "kanji": "体捌き",
+    "category": "general",
+    "tag": "Concepts",
+    "english": "body shifting",
+    "description": "Moving the body off the line of attack rather than meeting it head on.",
+    "image": null
+  },
+  {
+    "id": "general-91",
+    "name": "Sanchin",
+    "kanji": "三戦",
+    "category": "general",
+    "tag": "Kata",
+    "english": "three battles",
+    "description": "The core kata of the style: slow, tensed, breathing-driven. Everything else is built on it.",
+    "image": null
+  },
+  {
+    "id": "general-92",
+    "name": "Tenshō",
+    "kanji": "転掌",
+    "category": "general",
+    "tag": "Kata",
+    "english": "revolving palms",
+    "description": "The soft counterpart to Sanchin, using open-hand circular movement.",
+    "image": null
+  },
+  {
+    "id": "general-93",
+    "name": "Gekisai dai ichi",
+    "kanji": "撃砕第一",
+    "category": "general",
+    "tag": "Kata",
+    "english": "attack and smash 1",
+    "description": "The first kata taught, developed by Chōjun Miyagi in the 1940s to introduce basics.",
+    "image": null
+  },
+  {
+    "id": "general-94",
+    "name": "Gekisai dai ni",
+    "kanji": "撃砕第二",
+    "category": "general",
+    "tag": "Kata",
+    "english": "attack and smash 2",
+    "description": "Follows Gekisai dai ichi and introduces open-hand technique, neko ashi dachi and muchimi.",
+    "image": null
+  },
+  {
+    "id": "general-95",
+    "name": "Saifa",
+    "kanji": "砕破",
+    "category": "general",
+    "tag": "Kata",
+    "english": "smash and tear",
+    "description": "Introduces body evasion, hammer fists and rapid changes of direction.",
+    "image": null
+  },
+  {
+    "id": "general-96",
+    "name": "Seiyunchin",
+    "kanji": "制引戦",
+    "category": "general",
+    "tag": "Kata",
+    "english": "control and pull",
+    "description": "Contains no kicks. Built on shiko dachi and pulling, off-balancing hand work.",
+    "image": null
+  },
+  {
+    "id": "general-97",
+    "name": "Shisōchin",
+    "kanji": "四向戦",
+    "category": "general",
+    "tag": "Kata",
+    "english": "four directions",
+    "description": "Open-hand thrusts and elbow techniques worked in four directions.",
+    "image": null
+  },
+  {
+    "id": "general-98",
+    "name": "Sanseru",
+    "kanji": "三十六手",
+    "category": "general",
+    "tag": "Kata",
+    "english": "36 hands",
+    "description": "Attacks the limbs and joints, with low kicks and close-range entries.",
+    "image": null
+  },
+  {
+    "id": "general-99",
+    "name": "Sēpai",
+    "kanji": "十八手",
+    "category": "general",
+    "tag": "Kata",
+    "english": "18 hands",
+    "description": "Advanced kata mixing circular deflection with sudden angular attack.",
+    "image": null
+  },
+  {
+    "id": "general-100",
+    "name": "Kururunfa",
+    "kanji": "久留頓破",
+    "category": "general",
+    "tag": "Kata",
+    "english": "holding on long and striking suddenly",
+    "description": "Marked by long pauses then explosive bursts, with heavy use of neko ashi dachi.",
+    "image": null
+  },
+  {
+    "id": "general-101",
+    "name": "Sēsan",
+    "kanji": "十三手",
+    "category": "general",
+    "tag": "Kata",
+    "english": "13 hands",
+    "description": "Direct, linear kata focused on close-range control and precise angles.",
+    "image": null
+  },
+  {
+    "id": "general-102",
+    "name": "Suparinpei",
+    "kanji": "壱百零八手",
+    "category": "general",
+    "tag": "Kata",
+    "english": "108 hands",
+    "description": "The longest and most advanced kata in the system, containing the whole curriculum.",
+    "image": null
+  }
+]
