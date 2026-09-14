@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ArrowUpRight, ChevronLeft, ChevronRight, Info, Search, X } from 'lucide-react';
+import { ArrowUpRight, ChevronLeft, ChevronRight, Info, Pause, Play, Search, X } from 'lucide-react';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -18,6 +18,11 @@ type Term = {
   english: string;
   description: string;
   image: string | null;
+  video?: string;
+};
+
+type TechniqueMedia = Pick<Term, 'id'> & {
+  video: string;
 };
 
 const queryClient = new QueryClient();
@@ -84,6 +89,11 @@ function TermCard({
           </div>
         )}
         <span className={`card-category ${isTextOnly ? 'text-tag' : ''}`}>{term.tag || categoryLabels[term.category]}</span>
+        {term.video ? (
+          <span className="card-motion-badge" aria-hidden="true">
+            <Play size={9} fill="currentColor" /> 4 sec
+          </span>
+        ) : null}
         <span className={`card-index ${isTextOnly ? 'text-tag' : ''}`}>{String(index + 1).padStart(2, '0')}</span>
       </div>
       <div className="card-info">
@@ -114,6 +124,10 @@ function DetailPanel({
   onClose: () => void;
   onNavigate: (direction: -1 | 1) => void;
 }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose();
@@ -123,6 +137,26 @@ function DetailPanel({
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose, onNavigate, position, total]);
+
+  useEffect(() => {
+    setIsPlaying(false);
+    setVideoFailed(false);
+  }, [term.id]);
+
+  const togglePlayback = async () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      try {
+        await video.play();
+      } catch {
+        setVideoFailed(true);
+      }
+    } else {
+      video.pause();
+    }
+  };
 
   return (
     <>
@@ -148,11 +182,44 @@ function DetailPanel({
           </div>
           <div className={`detail-art ${!term.image ? 'text-only-art' : ''}`}>
             {term.image ? (
-              <img
-                src={imageSrc(term.image)}
-                alt={`${term.name} reference`}
-                data-testid={`detail-image-${term.id}`}
-              />
+              !term.video || videoFailed ? (
+                <img
+                  src={imageSrc(term.image)}
+                  alt={`${term.name} reference`}
+                  data-testid={`detail-image-${term.id}`}
+                />
+              ) : (
+                <>
+                  <video
+                    key={term.id}
+                    ref={videoRef}
+                    poster={imageSrc(term.image)}
+                    aria-label={`${term.name} four second movement demonstration`}
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    onPlay={() => setIsPlaying(true)}
+                    onPause={() => setIsPlaying(false)}
+                    onError={() => setVideoFailed(true)}
+                    data-testid={`detail-video-${term.id}`}
+                  >
+                    <source src={imageSrc(term.video.replace(/\.mp4$/, '.webm'))} type="video/webm" />
+                    <source src={imageSrc(term.video)} type="video/mp4" />
+                  </video>
+                  <button
+                    className="video-control"
+                    type="button"
+                    onClick={togglePlayback}
+                    aria-label={isPlaying ? `Pause ${term.name} demonstration` : `Play ${term.name} demonstration`}
+                    aria-pressed={isPlaying}
+                    data-testid={`button-video-${term.id}`}
+                  >
+                    {isPlaying ? <Pause size={15} fill="currentColor" aria-hidden="true" /> : <Play size={15} fill="currentColor" aria-hidden="true" />}
+                    <span>{isPlaying ? 'Pause movement' : 'Play movement'}</span>
+                  </button>
+                </>
+              )
             ) : (
               <div className="text-art-inner" style={{ transform: 'none' }}>
                 <span className="text-art-kanji">{term.kanji || term.name.charAt(0)}</span>
@@ -213,12 +280,20 @@ function Home() {
   const loadTerms = () => {
     setIsLoading(true);
     setError(false);
-    fetch(`${import.meta.env.BASE_URL}terms.json`)
-      .then((response) => {
+    Promise.all([
+      fetch(`${import.meta.env.BASE_URL}terms.json`).then((response) => {
         if (!response.ok) throw new Error('Unable to load terminology');
         return response.json() as Promise<Term[]>;
+      }),
+      fetch(`${import.meta.env.BASE_URL}techniques.json`).then((response) => {
+        if (!response.ok) throw new Error('Unable to load technique media');
+        return response.json() as Promise<TechniqueMedia[]>;
+      }),
+    ])
+      .then(([data, media]) => {
+        const videosById = new Map(media.map((technique) => [technique.id, technique.video]));
+        setTerms(data.map((term) => ({ ...term, video: videosById.get(term.id) })));
       })
-      .then((data) => setTerms(data))
       .catch(() => setError(true))
       .finally(() => setIsLoading(false));
   };
