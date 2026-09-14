@@ -204,7 +204,7 @@
 .close-detail { display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid hsl(var(--border)); border-radius: 9px; background: transparent; color: hsl(var(--muted-foreground)); cursor: pointer; transition: color .18s, background-color .18s; }
 .close-detail:hover { background: hsl(var(--muted)); color: hsl(var(--foreground)); }
 .detail-art { position: relative; overflow: hidden; margin-bottom: 27px; border-radius: 12px; background: hsl(var(--muted)); }
-.detail-art img { display: block; width: 100%; max-height: 57vh; object-fit: cover; }
+.detail-art img { display: block; width: 100%; height: auto; object-fit: contain; object-position: center; }
 .detail-art::after { content: ""; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 0 1px hsl(var(--foreground) / .08); }
 .detail-art.text-only-art { display: grid; place-items: center; min-height: 35vh; background: radial-gradient(circle at center, hsl(var(--card)), hsl(var(--muted))); }
 .detail-art.text-only-art .text-art-kanji { font-size: 90px; }
@@ -271,7 +271,7 @@
   .detail-panel-inner { padding: 16px 20px 32px; }
   .detail-top { margin-bottom: 17px; }
   .detail-art { margin-bottom: 20px; }
-  .detail-art img { max-height: 46vh; }
+  .detail-art img { width: 100%; height: auto; }
   .detail-heading h2 { font-size: 31px; }
   .detail-kanji { font-size: 21px; }
   .detail-description { font-size: 14px; }
