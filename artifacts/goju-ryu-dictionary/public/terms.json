@@ -26,7 +26,7 @@
     "category": "stances",
     "tag": "Stance",
     "english": "hourglass stance",
-    "description": "Gōjū-ryū's signature stance. One foot half a step forward, both feet turned in, knees drawn together and the whole body under tension while you breathe.",
+    "description": "A compact staggered stance with knees flexed and feet turned inward. The front heel sits near the rear toe line. Confirm alignment and breathing with your instructor.",
     "image": "images/sanchin-dachi.jpg"
   },
   {
@@ -36,7 +36,7 @@
     "category": "stances",
     "tag": "Stance",
     "english": "cat stance",
-    "description": "Roughly 90% of the weight sits on the bent back leg. Only the ball of the front foot rests on the floor, so it can kick or slide without a weight shift.",
+    "description": "The bent rear knee supports most of the weight. The front heel is raised with light forefoot contact. A still image cannot establish the exact weight distribution.",
     "image": "images/neko-ashi-dachi.jpg"
   },
   {
@@ -56,7 +56,7 @@
     "category": "stances",
     "tag": "Stance",
     "english": "front stance",
-    "description": "Long stance with about 70% of the weight on the bent front leg and the back leg driven straight. Used to deliver stepping techniques forward.",
+    "description": "The front knee is bent, the rear leg lengthened and the rear heel grounded. Used for stepping techniques; confirm weight distribution with your instructor.",
     "image": "images/zenkutsu-dachi.jpg"
   },
   {
@@ -66,7 +66,7 @@
     "category": "stances",
     "tag": "Stance",
     "english": "back stance",
-    "description": "The mirror of front stance: weight loads onto the bent rear leg, front leg light and straight. A defensive stance that lets you pull back out of range.",
+    "description": "The rear knee is flexed with rearward weight emphasis. The front foot points forward and the rear foot is angled across. Confirm the stance shape used by your dojo.",
     "image": "images/kokutsu-dachi.jpg"
   },
   {
@@ -76,7 +76,7 @@
     "category": "stances",
     "tag": "Stance",
     "english": "crane stance",
-    "description": "Balanced on one bent leg with the other foot tucked in behind the supporting knee. Appears in Seiyunchin and Kururunfa, usually just before a kick or a drop.",
+    "description": "Balance on one leg with the raised foot tucked near the supporting knee. Exact foot placement varies by kata and lineage.",
     "image": "images/tsuru-ashi-dachi.jpg"
   },
   {
@@ -86,7 +86,7 @@
     "category": "punches",
     "tag": "Punch",
     "english": "straight punch",
-    "description": "The basic punch: fist travels straight out from the hip, forearm rotating so the knuckles land palm-down. No step — practised on the spot from a natural stance.",
+    "description": "A straight punch practised in parallel stance without a step. The first two knuckles lead and the wrist stays aligned as the forearm rotates.",
     "image": "images/choku-zuki.jpg"
   },
   {
@@ -96,7 +96,7 @@
     "category": "punches",
     "tag": "Punch",
     "english": "lunge punch",
-    "description": "Step forward into front stance and punch with the hand on the same side as the leading leg, so the whole body mass travels behind the fist.",
+    "description": "Step forward and punch with the arm on the same side as the forward leg. The illustration shows the step's finish, not the stepping action itself.",
     "image": "images/oi-zuki.jpg"
   },
   {
@@ -106,7 +106,7 @@
     "category": "punches",
     "tag": "Punch",
     "english": "reverse punch",
-    "description": "From front stance, the rear hand punches as the hips snap square to the target. Karate's main power punch — the hip rotation, not the arm, supplies the force.",
+    "description": "Punch with the arm opposite the forward leg, using hip rotation. This arm-to-leg relationship distinguishes the reverse punch from oi zuki.",
     "image": "images/gyaku-zuki.jpg"
   },
   {
@@ -116,7 +116,7 @@
     "category": "punches",
     "tag": "Punch",
     "english": "jab",
-    "description": "A fast snapping punch with the lead hand from fighting stance. Used to measure distance, interrupt an attack, or open the way for something heavier.",
+    "description": "Extend the lead hand while the rear hand guards. Timing distinguishes this jab from a stepping punch; the endpoint alone does not show that difference.",
     "image": "images/kizami-zuki.jpg"
   },
   {
@@ -166,7 +166,7 @@
     "category": "strikes",
     "tag": "Strike",
     "english": "ridge-hand strike",
-    "description": "The mirror of the knife-hand: the strike sweeps outward and lands on the thumb-side edge of the hand, typically into the neck or the side of the head.",
+    "description": "The thumb-side ridge at the base of the index finger leads a controlled inward arc. This is the opposite striking edge from shuto; keep the hand shape aligned.",
     "image": "images/haito-uchi.jpg"
   },
   {
@@ -176,7 +176,7 @@
     "category": "strikes",
     "tag": "Strike",
     "english": "hammer-fist strike",
-    "description": "The bottom of the clenched fist drops like a hammer — straight down onto a collarbone or grabbing arm, or sideways into the ribs. Heavy rather than fast.",
+    "description": "The little-finger side of the closed fist leads a downward hammer-fist action. The front knuckles are not the intended contact surface in this illustration.",
     "image": "images/tettsui-uchi.jpg"
   },
   {
@@ -186,7 +186,7 @@
     "category": "strikes",
     "tag": "Strike",
     "english": "elbow strike",
-    "description": "At close range the elbow becomes the weapon, driven forward, up, back or across. Short travel, very little that can go wrong, and nothing to break.",
+    "description": "Keep the arm folded with the elbow leading across the body. This illustration selects the horizontal variant; other elbow-strike directions require separate instruction.",
     "image": "images/empi-uchi.jpg"
   },
   {
@@ -196,7 +196,7 @@
     "category": "strikes",
     "tag": "Strike",
     "english": "spear-hand strike",
-    "description": "Fingers held straight and braced together, thrust like a blade into soft targets — the throat, the floating ribs, the solar plexus.",
+    "description": "Joined fingers point along the thrust, with the fingertips leading. Have an instructor check thumb and finger alignment before practising the technique.",
     "image": "images/nukite.jpg"
   },
   {
@@ -216,7 +216,7 @@
     "category": "kicks",
     "tag": "Kick",
     "english": "roundhouse kick",
-    "description": "The knee comes up to the side, then the hip rotates over and the leg whips around parallel to the floor. Lands with the instep, ball of the foot, or shin.",
+    "description": "Pivot the supporting foot and turn the hip to bring the leg around. The illustration selects instep contact; a still frame cannot show the full pivot or recoil.",
     "image": "images/mawashi-geri.jpg"
   },
   {
@@ -226,7 +226,7 @@
     "category": "kicks",
     "tag": "Kick",
     "english": "side kick",
-    "description": "The kick travels sideways with the body leaning away from it, striking with the outer edge of the foot (sokutō) rather than the ball.",
+    "description": "A lateral thrust with the hips side-on and the heel or outer foot edge leading. This guide uses 'side kick' for this interpretation. Some Gōjū-ryū branches call it sokuto geri and reserve yoko geri for a circular side action; confirm your dojo's terminology.",
     "image": "images/yoko-geri.jpg"
   },
   {
@@ -236,7 +236,7 @@
     "category": "kicks",
     "tag": "Kick",
     "english": "back kick",
-    "description": "A kick driven straight out behind you, heel first, with the body folding forward as the leg extends. Usually thrown after turning.",
+    "description": "Drive the heel behind the body with the toes pointing down. Turn the head to locate the target; confirm the turn, balance and recoil with your instructor.",
     "image": "images/ushiro-geri.jpg"
   },
   {
@@ -246,7 +246,7 @@
     "category": "kicks",
     "tag": "Kick",
     "english": "knee strike",
-    "description": "The knee is driven upward into the body at close range, normally while both hands pull the opponent down onto it.",
+    "description": "The bent knee leads upward while the lower leg folds beneath or behind it. Do not extend the lower leg as in a front kick.",
     "image": "images/hiza-geri.jpg"
   },
   {
@@ -256,7 +256,7 @@
     "category": "kicks",
     "tag": "Kick",
     "english": "joint kick",
-    "description": "A low stamping kick into the side or front of the knee joint. Short, blunt and aimed at taking the opponent's base away.",
+    "description": "A low diagonal stamping action with the ankle flexed and the heel or outer foot edge presented at knee level. Practise the shape without contact and under instructor supervision.",
     "image": "images/kansetsu-geri.jpg"
   },
   {
@@ -266,7 +266,7 @@
     "category": "kicks",
     "tag": "Kick",
     "english": "groin kick",
-    "description": "A rising snap kick to the groin using the instep or shin. Short travel, no wind-up, often thrown off the back leg in kihon combinations.",
+    "description": "A low upward snapping action with a pointed ankle and the instep leading. Unlike mae geri, the toes are not retracted to expose the ball of the foot.",
     "image": "images/kin-geri.jpg"
   },
   {
@@ -296,7 +296,7 @@
     "category": "blocks",
     "tag": "Block",
     "english": "outside block",
-    "description": "The forearm comes from outside the body inward across the centreline, catching a chest-height punch on the outer edge of the arm.",
+    "description": "This guide uses soto uke for an outside-to-inside forearm action. The fist finishes toward the centre with the elbow down. Soto/uchi naming varies between Gōjū-ryū organizations; confirm your dojo's convention.",
     "image": "images/soto-uke.jpg"
   },
   {
@@ -306,7 +306,7 @@
     "category": "blocks",
     "tag": "Block",
     "english": "inside block",
-    "description": "The opposite path to soto uke — the forearm starts near the body and drives outward, pushing the attack away from the centreline.",
+    "description": "This guide uses uchi uke for an inside-to-outside forearm action with the elbow bent. Some organizations call this shomen uke or use the opposite soto/uchi labels. Confirm your dojo's convention.",
     "image": "images/uchi-uke.jpg"
   },
   {
@@ -316,7 +316,7 @@
     "category": "blocks",
     "tag": "Block",
     "english": "knife-hand block",
-    "description": "An open-hand guard: the leading hand blocks with the palm edge while the other stays at the solar plexus. Almost always paired with back stance.",
+    "description": "A bent open-hand receiving position with the second open hand near the torso. Distinct from shuto uchi's extended cutting action.",
     "image": "images/shuto-uke.jpg"
   },
   {
@@ -326,7 +326,7 @@
     "category": "blocks",
     "tag": "Block",
     "english": "circular block",
-    "description": "Gōjū-ryū's own two-handed block, drawn from Sanchin and Tenshō. Both open hands turn through a circle — one high, one low — redirecting rather than meeting force.",
+    "description": "Both open hands exchange through a circular receiving action. The illustration selects a high/low open-palm finish; a single frame cannot show the preceding circular exchange.",
     "image": "images/mawashi-uke.jpg"
   },
   {
@@ -336,7 +336,7 @@
     "category": "blocks",
     "tag": "Block",
     "english": "hooking block",
-    "description": "The hand hooks over the incoming arm and pulls it off line, trapping the attacker for a moment so the other hand can strike into the gap.",
+    "description": "An open hand and flexed wrist form a hooking receiver. The shape is not merely curled fingers or a claw; confirm the wrist action with your instructor.",
     "image": "images/kake-uke.jpg"
   },
   {

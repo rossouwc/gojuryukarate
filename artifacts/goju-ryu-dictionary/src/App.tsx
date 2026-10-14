@@ -238,7 +238,12 @@ function DetailPanel({
           <p className="detail-description">{term.description}</p>
           <div className="training-note">
             <Info size={16} aria-hidden="true" />
-            <p>Use this guide as a memory cue, then confirm the shape and timing with your instructor on the floor.</p>
+            <p>
+              {term.image
+                ? 'These AI-generated illustrations show selected moments, not complete movement sequences. Confirm the anatomy, form and terminology with a qualified instructor. A still image cannot establish timing, direction or weight distribution.'
+                : 'Use this guide as a memory cue, then confirm the shape and timing with your instructor on the floor.'}
+              {term.video && ' The existing motion clip uses the previous illustrations and has not been regenerated from this updated image set.'}
+            </p>
           </div>
           <div className="detail-nav">
             <button

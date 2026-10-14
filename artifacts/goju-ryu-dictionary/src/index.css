@@ -160,8 +160,7 @@
 .technique-card:active { transform: translateY(-2px); }
 .card-art { position: relative; aspect-ratio: 4 / 4.7; overflow: hidden; background: hsl(var(--muted)); }
 .card-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(17, 31, 34, .2)); pointer-events: none; }
-.card-art img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .45s cubic-bezier(.2,.75,.25,1); }
-.technique-card:hover .card-art img { transform: scale(1.045); }
+.card-art img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .card-art.text-only-art { display: grid; place-items: center; background: radial-gradient(circle at center, hsl(var(--card)), hsl(var(--muted))); }
 .card-art.text-only-art::after { display: none; }
 .text-art-inner { display: flex; flex-direction: column; align-items: center; gap: 4px; color: hsl(var(--primary)); opacity: 0.9; transform: rotate(4deg); transition: transform .4s cubic-bezier(.2,.75,.25,1); }
