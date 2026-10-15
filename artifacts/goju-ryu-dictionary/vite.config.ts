@@ -2,6 +2,7 @@ import path from 'path';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
+import { imageVersions } from './scripts/image-versions.mjs';
 
 import runtimeErrorOverlay from '@replit/vite-plugin-runtime-error-modal';
 
@@ -29,6 +30,11 @@ if (!basePath) {
 
 export default defineConfig({
   base: basePath,
+  define: {
+    __TECHNIQUE_IMAGE_VERSIONS__: JSON.stringify(
+      imageVersions(path.join(import.meta.dirname, 'public')),
+    ),
+  },
   plugins: [
     react(),
     tailwindcss(),

@@ -1,1 +1,2 @@
 - [Learner data safety](learner-data-safety.md) — unreadable progress can belong to a newer release; do not silently replace it with empty saved state.
+- [Published image verification](published-image-verification.md) — verify live image bytes separately from local builds; unchanged URLs can leave browsers displaying older images.

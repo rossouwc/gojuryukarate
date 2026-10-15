@@ -2,10 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { Bookmark, ChevronLeft, ChevronRight, Info, Pause, Play, X } from 'lucide-react';
 import { ModalShell } from './Dialog';
 import type { Term } from './model';
+import { versionedAssetUrl } from '../lib/asset-url';
+
+declare const __TECHNIQUE_IMAGE_VERSIONS__: Readonly<Record<string, string>>;
 
 export function imageSrc(path: string) {
-  const cleanPath = path.replace(/^\/+/, '');
-  return `${import.meta.env.BASE_URL}${cleanPath}`;
+  return versionedAssetUrl(path, import.meta.env.BASE_URL, __TECHNIQUE_IMAGE_VERSIONS__);
 }
 
 export function DetailDialog({
