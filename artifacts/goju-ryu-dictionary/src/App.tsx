@@ -1,25 +1,16 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ArrowUpRight, ChevronLeft, ChevronRight, Info, Pause, Play, Search, X } from 'lucide-react';
+import { ArrowUpRight, Play, Search, X } from 'lucide-react';
+import { AppNav, StorageBanner } from '@/study/AppNav';
+import { DetailDialog, imageSrc } from '@/study/DetailDialog';
+import { StudyPage } from '@/study/StudyApp';
+import { useStudyProgress, type StudyProgressController } from '@/study/useStudyProgress';
+import type { Category, Term } from '@/study/model';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
 import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
-
-type Category = 'stances' | 'punches' | 'strikes' | 'kicks' | 'blocks' | 'general';
-
-type Term = {
-  id: string;
-  name: string;
-  kanji: string;
-  category: Category;
-  tag?: string;
-  english: string;
-  description: string;
-  image: string | null;
-  video?: string;
-};
 
 type TechniqueMedia = Pick<Term, 'id'> & {
   video: string;
@@ -39,10 +30,6 @@ const categoryLabels: Record<'all' | Category, string> = {
 
 const generalTags = ['Commands & etiquette', 'Levels & directions', 'Body weapons', 'Concepts', 'Kata'];
 
-function imageSrc(path: string) {
-  const cleanPath = path.replace(/^\/+/, '');
-  return `${import.meta.env.BASE_URL}${cleanPath}`;
-}
 
 function LoadingGrid() {
   return (
@@ -111,176 +98,10 @@ function TermCard({
   );
 }
 
-function DetailPanel({
-  term,
-  position,
-  total,
-  onClose,
-  onNavigate,
-}: {
-  term: Term;
-  position: number;
-  total: number;
-  onClose: () => void;
-  onNavigate: (direction: -1 | 1) => void;
-}) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [videoFailed, setVideoFailed] = useState(false);
-
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose();
-      if (event.key === 'ArrowLeft' && position > 0) onNavigate(-1);
-      if (event.key === 'ArrowRight' && position < total - 1) onNavigate(1);
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose, onNavigate, position, total]);
-
-  useEffect(() => {
-    setIsPlaying(false);
-    setVideoFailed(false);
-  }, [term.id]);
-
-  const togglePlayback = async () => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    if (video.paused) {
-      try {
-        await video.play();
-      } catch {
-        setVideoFailed(true);
-      }
-    } else {
-      video.pause();
-    }
-  };
-
-  return (
-    <>
-      <div className="backdrop" onClick={onClose} data-testid="button-close-backdrop" />
-      <aside
-        className="detail-panel"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="detail-title"
-        data-testid={`detail-panel-${term.id}`}
-      >
-        <div className="detail-panel-inner">
-          <div className="detail-top">
-            <span className="detail-label">Field guide / {term.category} {term.tag ? ` / ${term.tag}` : ''}</span>
-            <button
-              className="close-detail"
-              onClick={onClose}
-              aria-label="Close detail"
-              data-testid="button-close-detail"
-            >
-              <X size={18} aria-hidden="true" />
-            </button>
-          </div>
-          <div className={`detail-art ${!term.image ? 'text-only-art' : ''}`}>
-            {term.image ? (
-              !term.video || videoFailed ? (
-                <img
-                  src={imageSrc(term.image)}
-                  alt={`${term.name} reference`}
-                  data-testid={`detail-image-${term.id}`}
-                />
-              ) : (
-                <>
-                  <video
-                    key={term.id}
-                    ref={videoRef}
-                    poster={imageSrc(term.image)}
-                    aria-label={`${term.name} four second movement demonstration`}
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    onPlay={() => setIsPlaying(true)}
-                    onPause={() => setIsPlaying(false)}
-                    onError={() => setVideoFailed(true)}
-                    data-testid={`detail-video-${term.id}`}
-                  >
-                    <source src={imageSrc(term.video.replace(/\.mp4$/, '.webm'))} type="video/webm" />
-                    <source src={imageSrc(term.video)} type="video/mp4" />
-                  </video>
-                  <button
-                    className="video-control"
-                    type="button"
-                    onClick={togglePlayback}
-                    aria-label={isPlaying ? `Pause ${term.name} demonstration` : `Play ${term.name} demonstration`}
-                    aria-pressed={isPlaying}
-                    data-testid={`button-video-${term.id}`}
-                  >
-                    {isPlaying ? <Pause size={15} fill="currentColor" aria-hidden="true" /> : <Play size={15} fill="currentColor" aria-hidden="true" />}
-                    <span>{isPlaying ? 'Pause movement' : 'Play movement'}</span>
-                  </button>
-                </>
-              )
-            ) : (
-              <div className="text-art-inner" style={{ transform: 'none' }}>
-                <span className="text-art-kanji">{term.kanji || term.name.charAt(0)}</span>
-              </div>
-            )}
-          </div>
-          <div className="detail-heading">
-            <div>
-              <h2 id="detail-title">{term.name}</h2>
-              <p className="detail-english">{term.english}</p>
-            </div>
-            <span className="detail-kanji" lang="ja">{term.kanji}</span>
-          </div>
-          <div className="detail-rule" />
-          <p className="detail-section-label">Movement cue</p>
-          <p className="detail-description">{term.description}</p>
-          <div className="training-note">
-            <Info size={16} aria-hidden="true" />
-            <p>
-              {term.image
-                ? 'These AI-generated illustrations show selected moments, not complete movement sequences. Confirm the anatomy, form and terminology with a qualified instructor. A still image cannot establish timing, direction or weight distribution.'
-                : 'Use this guide as a memory cue, then confirm the shape and timing with your instructor on the floor.'}
-              {term.video && ' The existing motion clip uses the previous illustrations and has not been regenerated from this updated image set.'}
-            </p>
-          </div>
-          <div className="detail-nav">
-            <button
-              onClick={() => onNavigate(-1)}
-              disabled={position === 0}
-              data-testid="button-previous-term"
-              aria-label="Previous term"
-            >
-              <ChevronLeft size={14} aria-hidden="true" /> Previous
-            </button>
-            <span className="detail-index" aria-label={`Term ${position + 1} of ${total}`}>
-              {String(position + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
-            </span>
-            <button
-              onClick={() => onNavigate(1)}
-              disabled={position === total - 1}
-              data-testid="button-next-term"
-              aria-label="Next term"
-            >
-              Next <ChevronRight size={14} aria-hidden="true" />
-            </button>
-          </div>
-        </div>
-      </aside>
-    </>
-  );
-}
-
-function Home() {
+function useTerms() {
   const [terms, setTerms] = useState<Term[]>([]);
-  const [query, setQuery] = useState('');
-  const [category, setCategory] = useState<'all' | Category>('all');
-  const [tag, setTag] = useState<string | null>(null);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-  const searchRef = useRef<HTMLInputElement>(null);
 
   const loadTerms = () => {
     setIsLoading(true);
@@ -307,6 +128,18 @@ function Home() {
     loadTerms();
   }, []);
 
+  return { terms, isLoading, error, onRetry: loadTerms };
+}
+
+type DataProps = { terms: Term[]; isLoading: boolean; error: boolean; onRetry: () => void; study: StudyProgressController };
+
+function Home({ terms, isLoading, error, onRetry: loadTerms, study }: DataProps) {
+  const [query, setQuery] = useState('');
+  const [category, setCategory] = useState<'all' | Category>('all');
+  const [tag, setTag] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     const handleShortcut = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
@@ -317,11 +150,6 @@ function Home() {
     window.addEventListener('keydown', handleShortcut);
     return () => window.removeEventListener('keydown', handleShortcut);
   }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = selectedId ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [selectedId]);
 
   const filteredTerms = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -371,6 +199,7 @@ function Home() {
             <div className="header-rule" aria-hidden="true" />
             <span className="brand-note">Terminology for steady practice</span>
           </div>
+          <AppNav />
           <div className="search-row">
             <div className="search-box">
               <Search className="search-icon" size={18} aria-hidden="true" />
@@ -477,7 +306,9 @@ function Home() {
       </footer>
 
       {selectedTerm && selectedPosition >= 0 ? (
-        <DetailPanel
+        <DetailDialog
+          saved={study.progress.savedIds.includes(selectedTerm.id)}
+          onToggleSaved={() => study.toggleSaved(selectedTerm.id)}
           term={selectedTerm}
           position={selectedPosition}
           total={filteredTerms.length}
@@ -493,13 +324,34 @@ function Home() {
 }
 
 function Router() {
+  const [location] = useLocation();
+  const data = useTerms();
+  const study = useStudyProgress();
+  useEffect(() => {
+    const onStudy = location === '/study';
+    const title = onStudy ? 'Study Goju-Ryu Vocabulary — Flashcards & Quizzes' : 'Goju-Ryu Karate Dictionary';
+    const description = onStudy
+      ? 'Practise Goju-Ryu vocabulary with short flashcard sessions, two-way quizzes, spaced review, and progress saved on this device.'
+      : 'Explore 102 Goju-Ryu Karate terms with Japanese kanji, clear English explanations, and illustrated technique guides.';
+    document.title = title;
+    for (const selector of ['meta[property="og:title"]', 'meta[name="twitter:title"]']) {
+      document.querySelector(selector)?.setAttribute('content', title);
+    }
+    for (const selector of ['meta[name="description"]', 'meta[property="og:description"]', 'meta[name="twitter:description"]']) {
+      document.querySelector(selector)?.setAttribute('content', description);
+    }
+  }, [location]);
   return (
-    <RoutedErrorBoundary>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route component={NotFound} />
-      </Switch>
-    </RoutedErrorBoundary>
+    <>
+      <StorageBanner warning={study.storageWarning} />
+      <RoutedErrorBoundary>
+        <Switch>
+          <Route path="/"><Home {...data} study={study} /></Route>
+          <Route path="/study"><StudyPage {...data} study={study} /></Route>
+          <Route component={NotFound} />
+        </Switch>
+      </RoutedErrorBoundary>
+    </>
   );
 }
 

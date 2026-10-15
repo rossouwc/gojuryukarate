@@ -1,0 +1,1 @@
+- [Learner data safety](learner-data-safety.md) — unreadable progress can belong to a newer release; do not silently replace it with empty saved state.

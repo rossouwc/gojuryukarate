@@ -40,6 +40,9 @@ A responsive visual field guide for learning Goju-Ryu Karate terminology, Japane
 - Filter by stances, punches, strikes, kicks, blocks, or general terminology.
 - Study all 34 illustrated techniques in a focused detail view.
 - Browse kata, commands, etiquette, directions, body weapons, and core concepts on desktop or mobile.
+- `/study` offers vocabulary flashcards, bidirectional recognition quizzes, saved difficult terms, and device-local spaced-review progress.
+- Study groups are vocabulary aids, not grading requirements. Recall scores do not certify technique competence.
+- `pnpm --filter @workspace/goju-ryu-dictionary run test:study` checks scheduling, session limits, quiz ambiguity, and persistence failure handling.
 
 ## User preferences
 
