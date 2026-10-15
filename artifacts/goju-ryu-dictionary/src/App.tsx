@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ArrowUpRight, Play, Search, X } from 'lucide-react';
+import { ArrowUpRight, Search, X } from 'lucide-react';
 import { AppNav, StorageBanner } from '@/study/AppNav';
 import { DetailDialog, imageSrc } from '@/study/DetailDialog';
 import { StudyPage } from '@/study/StudyApp';
@@ -76,11 +76,6 @@ function TermCard({
           </div>
         )}
         <span className={`card-category ${isTextOnly ? 'text-tag' : ''}`}>{term.tag || categoryLabels[term.category]}</span>
-        {term.video ? (
-          <span className="card-motion-badge" aria-hidden="true">
-            <Play size={9} fill="currentColor" /> 4 sec
-          </span>
-        ) : null}
         <span className={`card-index ${isTextOnly ? 'text-tag' : ''}`}>{String(index + 1).padStart(2, '0')}</span>
       </div>
       <div className="card-info">

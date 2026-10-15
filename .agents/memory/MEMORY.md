@@ -1,2 +1,3 @@
 - [Learner data safety](learner-data-safety.md) — unreadable progress can belong to a newer release; do not silently replace it with empty saved state.
 - [Published image verification](published-image-verification.md) — verify live image bytes separately from local builds; unchanged URLs can leave browsers displaying older images.
+- [Movement display paused](movement-display-paused.md) — user removed playback controls and Study Entry information boxes for now; preserve the underlying video assets.
